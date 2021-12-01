@@ -1,5 +1,5 @@
 const { MessageEmbed } = require('discord.js')
-const fetch = require("node-fetch");
+import fetch from 'node-fetch';
 var fromReddit = async function(sub, message) {
     let meme
     await fetch(

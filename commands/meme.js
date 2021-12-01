@@ -1,6 +1,5 @@
 const { MessageEmbed } = require('discord.js')
-const fetch = require("node-fetch");
-
+import fetch from 'node-fetch';
 var fromReddit = async function(subredditlocale) {
   let subredditname;
   const subreddits = {
