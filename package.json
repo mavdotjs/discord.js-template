@@ -1,0 +1,23 @@
+{
+  "name": "paintbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "nodemon ."
+  },
+  "engines": {
+    "node": "^16.11.1"
+  },
+  "author": "MaverickQuill55",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15",
+    "random-memes": "^3.1.0",
+    "sql-gen": "^0.1.1",
+    "sqlite3": "^4.2.0"
+  }
+}
