@@ -36,3 +36,6 @@ client.login(process.env.TOKEN)
 app.get('/', (req, res)=>{
   res.send('Bot up!')
 });
+app.listen(port, '0.0.0.0',()=>{
+  console.log('running')
+})
