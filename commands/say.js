@@ -1,6 +1,8 @@
 exports.run = async(client, message, [...umessage])=>{
     let user = message.guild.members.cache.find(u=>u.id===message.author.id)
-    message.channel.createWebhook(user.displayname, {
+    let displayname = user.nickname || user.user.username
+    console.log(user)
+    message.channel.createWebhook(displayname, {
         avatar: message.author.avatarURL(),
         reason: "User message"
     }).then(webhk=>{
