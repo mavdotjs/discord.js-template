@@ -1,5 +1,6 @@
 module.exports = (client, message) => {
     if (message.author.bot) return;
+    if (message.webhookId) return;
     if (message.content.indexOf(client.config.prefix) !== 0) {
         if(client.chanevents.get(message.channel.name)) {
             client.chanevents.get(message.channel.name)(message)

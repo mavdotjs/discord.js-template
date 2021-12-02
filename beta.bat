@@ -1,3 +1,3 @@
 @echo off
-heroku ps:scale web=0
+call heroku ps:scale web=0
 npm test
