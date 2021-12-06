@@ -1,22 +1,25 @@
 const Discord = require("discord.js");
-const fs = require('fs');
-const express = require('express');
-const app = express()
-require('dotenv').config();
+const fs = require('fs'); // filesystem library for getting filenames
+const express = require('express'); // library for hosting webserver to keep the app alive (use a service like uptimerobot)
+const app = express() // start express app
+require('dotenv').config(); // read .env files and add them to process.env
 const port = process.env.PORT || 8080
 const client = new Discord.Client({
     intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES]
 });
-const config = require("./config.json");
+const config = require("./config.json"); // configuration file
+// add variables that all commands can access
 client.config = config;
 client.commands = new Discord.Collection();
 client.chanevents = new Discord.Collection();
+// get all events and register them
 const events = fs.readdirSync("./events").filter(file => file.endsWith(".js"));
 for (const file of events) {
   const eventName = file.split(".")[0];
   const event = require(`./events/${file}`);
   client.on(eventName, event.bind(null, client));
 }
+// get all channel events (set name of file to name of channel you want the event to run for)
 const chanevents = fs.readdirSync("./channels").filter(file => file.endsWith(".js"));
 for (const file of chanevents) {
   const chanName = file.split('.')[0];
@@ -29,7 +32,7 @@ for (const file of commands) {
   const commandName = file.split(".")[0];
   const command = require(`./commands/${file}`);
 
-  console.log(`Attempting to load command ${commandName}`);
+  // console.log(`Attempting to load command ${commandName}`);
   client.commands.set(commandName, command);
 }
 client.login(process.env.TOKEN)
