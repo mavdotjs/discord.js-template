@@ -17,6 +17,7 @@ const events = fs.readdirSync("./events").filter(file => file.endsWith(".js"));
 for (const file of events) {
   const eventName = file.split(".")[0];
   const event = require(`./events/${file}`);
+  if(typeof event !== 'function') continue;
   client.on(eventName, event.bind(null, client));
 }
 // get all channel events (set name of file to name of channel you want the event to run for)
