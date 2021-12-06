@@ -27,6 +27,7 @@ for (const file of chanevents) {
   if(typeof event !== 'function') continue;
   client.chanevents.set(chanName, event.bind(null, client))
 }
+// get all commands
 const commands = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of commands) {
   const commandName = file.split(".")[0];
@@ -35,6 +36,7 @@ for (const file of commands) {
   // console.log(`Attempting to load command ${commandName}`);
   client.commands.set(commandName, command);
 }
+// login to bot account
 client.login(process.env.TOKEN)
 app.get('/', (req, res)=>{
   res.send('Bot up!')
