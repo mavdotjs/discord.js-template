@@ -6,7 +6,7 @@ exports.run = (client, message, args)=>{
         .setTitle('Help')
         .setFooter('You need help? i got u fam')
     for(const command of client.commands) {
-        embed.addField(`${client.config.prefix}${command[0]}`, `[${command[1].help}]`, true)
+        embed.addField(`${client.config.prefix}${command[0]}`, `[${command[1].help?command[1].help:"dev never added a help message for this command -_-"}]`, true)
     }
     message.channel.send({ embeds: [embed]})
 }
