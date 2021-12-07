@@ -34,4 +34,5 @@ discord bot commands
 exports.run = (client, message, args /*can be destrucured, eg. [user, amount]*/)=>{
     // code will run when the command is ran
 }
+exports.help = "First command"
 ```
