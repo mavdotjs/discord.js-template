@@ -14,6 +14,9 @@ client.config = config;
 client.commands = new Discord.Collection();
 client.chanevents = new Discord.Collection();
 // get all events and register them
+if(!fs.existsSync('./events')) {
+  fs.mkdirSync('./events')
+}
 const events = fs.readdirSync("./events").filter(file => file.endsWith(".js"));
 for (const file of events) {
   const eventName = file.split(".")[0];
@@ -22,6 +25,9 @@ for (const file of events) {
   client.on(eventName, event.bind(null, client));
 }
 // get all channel events (set name of file to name of channel you want the event to run for)
+if(!fs.existsSync('./channels')) {
+  fs.mkdirSync('./channels')
+}
 const chanevents = fs.readdirSync("./channels").filter(file => file.endsWith(".js"));
 for (const file of chanevents) {
   const chanName = file.split('.')[0];
@@ -30,6 +36,9 @@ for (const file of chanevents) {
   client.chanevents.set(chanName, event.bind(null, client))
 }
 // get all commands
+if(!fs.existsSync('./commands')) {
+  fs.mkdirSync('./commands')
+}
 const commands = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
 for (const file of commands) {
   const commandName = file.split(".")[0];
