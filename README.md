@@ -10,8 +10,7 @@ TOKEN=<Bot Token>
 BUILD=F
 ```
 BUILD env variable can be used for checking if you are on a webserver or not (I recommend [heroku](https://signup.heroku.com/) as that is what this is already optimized for)  
-after setting up heroku add the same env variables in the heroku settings but set BUILD to T instead of F  
-**you can check out the examples in the commands folder, after doing so you can delete the files**  
+after setting up heroku add the same env variables in the heroku settings but set BUILD to litteally anything except for F this is automatically converted to a boolean value and stored in client.beta  
 ## Adding events
 ### `channels` (and `events`) Folder
 The channels folder allows you to add message sent events that only work in the specified channel (the filename is the channel name) eg.
