@@ -2,7 +2,7 @@ const { MessageEmbed } = require('discord.js')
 exports.run = (client, message, args)=>{
     const embed = new MessageEmbed()
         .setColor([0, 255, 50])
-        .setAuthor(client.user.username, client.user.displayavatarURL())
+        .setAuthor(client.user.username, client.user.displayAvatarURL())
         .setTitle('Help')
         .setFooter('You need help? i got u fam')
     for(const command of client.commands) {
