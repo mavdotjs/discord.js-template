@@ -8,6 +8,7 @@ const client = new Discord.Client({
     intents: [Discord.Intents.FLAGS.GUILDS, Discord.Intents.FLAGS.GUILD_MESSAGES]
 });
 const config = require("./config.json"); // configuration file
+
 // add variables that all commands can access
 client.beta = process.env.BUILD === "F"
 client.config = config;
